@@ -5,7 +5,7 @@ This project implements a **realistic, end-to-end data and AI platform** designe
 
 It combines **cloud-native data engineering**, **vector-based AI workloads**, and **daily research insight delivery**, closely mirroring how modern quant research teams operate in production environments.
 
-The solution emphasizes **data quality, reproducibility, scalable model pipelines, and researcher-facing usability**, rather than experimental notebooks or toy pipelines.
+The solution emphasizes **data quality, reproducibility, scalable model pipelines, and researcher-facing usability**.
 
 ---
 
