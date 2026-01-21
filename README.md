@@ -1,11 +1,11 @@
-# Quant Research Data & AI Platform on Google Cloud
-*A Production-Grade Data & AI Engineering Platform for Financial Market Research*
+# Quant Research Data, Signal Evaluation & AI Platform on Google Cloud  
+*A Production-Grade Data, Signal & AI Engineering Platform for Financial Market Research*
 
-This project implements a **realistic, end-to-end data and AI platform** designed to support **quantitative research and market intelligence workflows** in financial services.
+This project implements a **realistic, end-to-end data, signal, and AI platform** designed to support **quantitative research, signal validation, and market intelligence workflows** in financial services.
 
-It combines **cloud-native data engineering**, **vector-based AI workloads**, and **daily research insight delivery**, closely mirroring how modern quant research teams operate in production environments.
+It combines **cloud-native data engineering**, **time-aware signal evaluation**, **vector-based AI workloads**, and **daily research insight delivery**, closely mirroring how modern **quant research and pre-trade signal platforms** operate in production environments.
 
-The solution emphasizes **data quality, reproducibility, scalable model pipelines, and researcher-facing usability**.
+The solution emphasizes **data quality, reproducibility, signal integrity, and researcher-facing usability**, ensuring outputs are suitable for downstream **strategy development and trading research**.
 
 ---
 
@@ -17,14 +17,15 @@ The solution emphasizes **data quality, reproducibility, scalable model pipeline
 ## Business Use Case
 
 **Industry:** Financial Services  
-**Primary Users:** Quantitative Researchers, Data Scientists, AI Engineers  
+**Primary Users:** Quantitative Researchers, Quant Trading Teams, Data Scientists, AI Engineers  
 
 **Objectives:**
 - Ingest and standardise multi-source financial market data
-- Produce AI-ready, embedding-optimised datasets
-- Train and run research models  daily 
-- Deliver time-aware insights to researchers before market open
-- Support historical comparison and backtesting of model outputs
+- Produce AI- and signal-ready, embedding-optimised datasets
+- Generate and evaluate predictive research signals daily
+- Validate signal quality using leakage-safe, time-aware metrics
+- Deliver research and signal insights to researchers before market open
+- Support historical comparison, walk-forward analysis, and research reproducibility
 
 ---
 
@@ -35,8 +36,8 @@ The solution emphasizes **data quality, reproducibility, scalable model pipeline
 - **Scheduled ingestion** of structured and semi-structured financial data
 - **Append-only raw data storage** for traceability and replay
 - **Schema enforcement and validation** using Delta Live Tables
-- **Deterministic transformations** ensuring reproducible model inputs
-- **Partitioned, time-aware datasets** optimised for research workloads
+- **Deterministic transformations** ensuring reproducible model and signal inputs
+- **Partitioned, time-aware datasets** optimised for research and signal evaluation workloads
 
 ---
 
@@ -45,33 +46,50 @@ The solution emphasizes **data quality, reproducibility, scalable model pipeline
 - Feature engineering tailored for:
   - Time series analysis
   - Market regime detection
-  - NLP-driven financial research
+  - Cross-asset research
+  - NLP-driven financial insight extraction
 - Embedding generation aligned with **vector database best practices**
-- Optimised storage for similarity search, retrieval, and downstream AI use cases
+- Optimised storage for similarity search, retrieval, and downstream AI and signal use cases
+
+---
+
+### Research Signal Generation & Evaluation (Quant-Focused)
+
+- Generation of **daily predictive research signals**, including:
+  - Forward return expectations
+  - Volatility and risk forecasts
+  - Regime classification signals
+- **Leakage-safe signal alignment**, ensuring all features strictly precede prediction horizons
+- **Walk-forward signal evaluation**, measuring:
+  - Information Coefficient (IC)
+  - Hit rate and directional accuracy
+  - Signal decay and stability over time
+- Time-aware signal versioning, enabling **point-in-time comparison of model and signal outputs**
+- Signal outputs stored as **research-grade, trade-adjacent datasets**, suitable for downstream strategy and portfolio construction
 
 ---
 
 ### Model Training & Research Workloads
 
-- **Vertex AI** for managed training and experimentation
+- **Vertex AI** for managed training, experimentation, and model versioning
 - **TPU-backed workloads** for high-throughput model execution
 - **Hugging Face models** for financial NLP and representation learning
-- **Gemini models on Vertex AI** for advanced summarisation and reasoning
-- Daily retraining or inference pipelines driven by fresh market data
+- **Gemini models on Vertex AI** for advanced market summarisation and reasoning
+- Daily retraining or inference pipelines driven by fresh market and macro data
 
 ---
 
-### Research Insight Delivery
+### Research & Signal Insight Delivery
 
-- **Daily automated research summaries**
-- Delivered via a **Streamlit frontend** designed for researchers
+- **Daily automated research and signal summaries**
+- Delivered via a **Streamlit frontend** designed for quant researchers
 - Dropdown-based navigation allowing:
-  - Current day insights
-  - Historical summaries (up to previous 7 days)
+  - Current day research and signal views
+  - Historical signal performance (up to previous 7 days)
 - Clear separation between:
   - Data processing
-  - Model execution
-  - Research consumption
+  - Signal and model execution
+  - Research and signal consumption
 
 ---
 
@@ -91,20 +109,22 @@ Data is fetched via external APIs and landed in **Google Cloud Storage** in an i
 ### Processing & Validation (Delta Live Tables)
 
 **Bronze**
-- Raw API responses
-- Append-only
-- Full lineage preserved
+- Raw API responses  
+- Append-only  
+- Full lineage preserved  
 
 **Silver**
-- Schema validation
-- Normalisation and enrichment
-- Time alignment across sources
-- Missing data handling
+- Schema validation  
+- Normalisation and enrichment  
+- Time alignment across sources  
+- Missing data handling  
+- Feature readiness validation for signal generation  
 
 **Gold**
-- AI-ready feature sets
-- Embedding-optimised tables
-- Research-consumable datasets
+- AI-ready feature sets  
+- Signal-ready datasets  
+- Embedding-optimised tables  
+- Research- and trading-adjacent outputs  
 
 ---
 
@@ -115,22 +135,26 @@ Data is fetched via external APIs and landed in **Google Cloud Storage** in an i
   - API ingestion
   - Spark transformation
   - Data quality checks
+  - Feature engineering
+  - Signal generation
+  - Signal evaluation
   - Vectorisation
   - Model execution
-  - Insight generation
+  - Insight and signal summary generation
 
 **SLA-driven design:**  
-Insights are guaranteed to be available before the start of the research day.
+Research and signal insights are guaranteed to be available before the start of the trading and research day.
 
 ---
 
 ## Frontend & Research Experience
 
-### Streamlit Research Console
+### Streamlit Research & Signal Console
 - Clean, minimal UI for quant workflows
-- Daily summary views
-- Historical comparison support
-- Model outputs presented with timestamps and data versioning
+- Daily research insights and predictive signal views
+- Signal performance metrics and stability indicators
+- Historical comparison and walk-forward evaluation support
+- Model, data, and signal versioning displayed explicitly
 
 ---
 
@@ -147,34 +171,34 @@ Insights are guaranteed to be available before the start of the research day.
 | AI Platform | Vertex AI | Training & inference |
 | Accelerators | TPU | High-performance compute |
 | Models | Hugging Face, Gemini | Financial NLP & reasoning |
-| Frontend | Streamlit | Research delivery |
-| Language | Python | Pipelines & modelling |
+| Frontend | Streamlit | Research & signal delivery |
+| Language | Python | Pipelines, signals & modelling |
 
 ---
 
 ## Engineering Principles Demonstrated
 
-- Separation of data, model, and presentation layers
-- Reproducible, time-aware pipelines
+- Separation of data, signal, model, and presentation layers
+- Reproducible, time-aware research and signal pipelines
+- Leakage-safe feature and signal evaluation
 - Production-style orchestration and SLAs
-- AI systems built on governed, high-quality data
-- Research-first UX design
+- AI and quant systems built on governed, high-quality data
+- Research- and trading-adjacent UX design
 
 ---
 
 ## Project Outcome
 
-This repository demonstrates **how modern financial research platforms are actually built**, combining:
+This repository demonstrates **how modern quant research and signal platforms are actually built**, combining:
 
 - Cloud-scale data engineering  
 - AI-ready lakehouse design  
+- Quant signal validation practices  
 - Vector-native architectures  
 - Managed ML infrastructure  
-- Researcher-facing delivery  
-
-
+- Researcher-facing signal delivery  
 
 ---
 
 **Status:** Portfolio / Demonstration Project  
-**Audience:** Data Engineers, AI Engineers, Machine Learning Engineers, Quantitative Research Technologists
+**Audience:** Data Engineers, Research Engineers, Machine Learning Engineers, Quantitative Research & Trading Technology Teams  
